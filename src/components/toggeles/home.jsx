@@ -13,7 +13,7 @@ const Home = () => {
           <div className="flex-1 bg-white w-[540px] p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
             {/* <h3 className="font-semibold mb-3">Overview</h3> */}
             <div className="h-40 bg-gray-200 rounded-md flex items-center justify-center">
-              <img src="/Home/data.png" alt="Chart" className="w-full h-full object-cover" /> 
+              <img src="/Home/Data.png" alt="Chart" className="w-full h-full object-cover" /> 
             </div>
           </div>
 
