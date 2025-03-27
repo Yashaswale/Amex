@@ -84,7 +84,7 @@ export default function FileExplorer() {
       <Navbar />
       <div className="flex flex-1 overflow-hidden">
         
-        <div className="w-64 overflow-y-auto p-2 px-4">
+        <div className="w-64 overflow-y-auto p-2 px-1">
           {/* Search Bar */}
           <div className="flex items-center bg-gray-100 px-4 py-2 rounded-full shadow-lg border border-gray-200 mb-6    ">
             <input
@@ -101,7 +101,7 @@ export default function FileExplorer() {
         <div className="flex-1 p-4 overflow-y-auto bg-gray-50">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {images.map(image => (
-              <div key={image.id} className="bg-white rounded-md overflow-hidden shadow-sm border">
+              <div key={image.id} className="bg-white rounded-lg overflow-hidden shadow-sm border">
                 <div className="flex justify-between items-center p-2 bg-gray-100">
                   <span className="text-sm font-medium">{image.title}</span>
                   <div className="flex items-center gap-2">
@@ -122,7 +122,7 @@ export default function FileExplorer() {
       </div>
       
       <div className="absolute bottom-4 left-4">
-        <button className="rounded-full bg-primary text-white flex items-center px-3 py-2">
+        <button className="rounded-full bg-primary text-white bg-black flex items-center px-3 py-2">
           <Plus size={16} className="mr-1" />
           Add Folder
         </button>

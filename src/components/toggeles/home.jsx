@@ -114,43 +114,43 @@ const Home = () => {
 
             {/* App List Section (20% of parent) */}
             <div className="w-[28.5%]">
-              <div className="bg-white p-4 rounded-xl shadow-md h-full hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-white p-2 px-4 rounded-xl shadow-md h-full hover:shadow-xl transition-shadow duration-300">
                 <h3 className="font-semibold mb-3 flex justify-between">
                   <span>App List</span>
                   <span className="text-blue-500 cursor-pointer">See All</span>
                 </h3>
                 <ul className="text-sm">
-                  <li className="flex justify-between py-1">
+                  <li className="flex justify-between py-0.5">
                     <span className="font-bold text-gray-400">Train Detection</span> 
                     <TramFront />
                   </li>
                   <span> 0 </span>
-                  <li className="flex justify-between py-1">
+                  <li className="flex justify-between py-0.5">
                     <span className="font-bold text-gray-400">Smoke & Fire</span> 
                     <TramFront />
                   </li>
                   <span> 272 </span>
-                  <li className="flex justify-between py-1">
+                  <li className="flex justify-between py-0.5">
                     <span className="font-bold text-gray-400">ANPR</span> 
                     <TramFront />
                   </li>
                   <span> 70.5 </span>
-                  <li className="flex justify-between py-1">
+                  <li className="flex justify-between py-0.5">
                     <span className="font-bold text-gray-400">Crowd Estimation</span> 
                     <TramFront />
                   </li>
                   <span> 10k </span>
-                  <li className="flex justify-between py-1">
+                  <li className="flex justify-between py-0.5">
                     <span className="font-bold text-gray-400">Face Recognition</span> 
                     <TramFront />
                   </li>
                   <span> 0 </span>
-                  <li className="flex justify-between py-1">
+                  <li className="flex justify-between py-0.5">
                     <span className="font-bold text-gray-400">No Helmet Violation</span> 
                     <TramFront />
                   </li>
                   <span> 210 </span>
-                  <li className="flex justify-between py-1">
+                  <li className="flex justify-between py-0.5">
                     <span className="font-bold text-gray-400">Stopped Vehicle</span> 
                     <TramFront />
                   </li>
