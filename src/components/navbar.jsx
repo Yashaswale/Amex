@@ -10,12 +10,12 @@ const NavItem = ({ icon: Icon, text, active, to, closeMenu }) => (
   <Link
     to={to}
     onClick={closeMenu}
-    className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all border-b-4 w-full text-center justify-center lg:w-auto lg:text-left ${
+    className={`flex items-center gap-2 px-4 py-2 rounded-full transition-colors border-b-4 ${
       active ? 'border-teal-400 bg-blue-50' : 'border-transparent hover:bg-gray-50'
     } text-gray-600`}
   >
     <Icon className="text-xl" />
-    <span className="text-sm font-medium hidden lg:inline">{text}</span>
+    <span className="text-sm font-medium">{text}</span>
   </Link>
 );
 
@@ -30,7 +30,7 @@ const Navbar = () => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 1110);
       if (window.innerWidth > 1110) {
-        setMenuOpen(false);
+        setMenuOpen(false); // Close menu if resizing to desktop
       }
     };
 
@@ -59,24 +59,24 @@ const Navbar = () => {
 
   const renderNavItems = (mobile = false) => (
     navItems.map((item, index) => (
-      <NavItem 
-        key={index} 
-        icon={item.icon} 
-        text={item.text} 
-        active={currentPath === item.path} 
-        to={item.path} 
+      <NavItem
+        key={index}
+        icon={item.icon}
+        text={item.text}
+        active={currentPath === item.path}
+        to={item.path}
         closeMenu={() => setMenuOpen(false)}
       />
     ))
   );
 
   return (
-    <nav className="relative top-0 left-0 w-full z-50 flex items-center justify-between px-4 lg:px-14 py-3 bg-white border-b shadow-md">
+    <nav className="relative top-0 left-0 w-full z-50 flex items-center justify-between px-4 lg:px-14 py-3 bg-white border-b shadow-lg">
       {/* Left Section */}
       <div className="flex items-center gap-4 lg:gap-8">
         {/* Logo */}
         <Link to="/home" className="flex items-center gap-1">
-          <img src="/logo.png" alt="AMEX" className="h-6 lg:h-8" />
+          <img src="/logo.png" alt="AMEX" className="h-8" />
         </Link>
 
         {/* Desktop Navigation */}
@@ -104,8 +104,8 @@ const Navbar = () => {
         </button>
 
         {/* Mobile Menu Toggle */}
-        <button 
-          onClick={() => setMenuOpen(!menuOpen)} 
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
           className="lg:hidden text-2xl text-gray-600"
         >
           {menuOpen ? <HiX /> : <HiMenu />}
@@ -114,8 +114,8 @@ const Navbar = () => {
 
       {/* Mobile Navigation Drawer */}
       {menuOpen && isMobile && (
-        <div 
-          className="relative top-16 left-0 w-full h-[calc(100vh-4rem)] bg-white shadow-lg flex flex-col items-center gap-4 py-6 overflow-y-auto"
+        <div
+          className="absolute top-16 left-0 w-full h-[calc(100vh-4rem)] bg-white shadow-lg flex flex-col items-center gap-4 py-6 overflow-y-auto"
           onClick={() => setMenuOpen(false)}
         >
           <div className="w-full px-4 flex flex-col items-center gap-4">

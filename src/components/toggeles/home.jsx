@@ -6,11 +6,11 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       <Navbar />
-      <div className="px-14 py-6">
+      <div className="px-4 py-6 md:px-14">
         {/* Top Stats Row */}
-        <div className="flex gap-6 mb-6">
+        <div className="flex flex-col md:flex-row gap-6 mb-6">
           {/* Overview Chart */}
-          <div className="flex-1 bg-white w-[540px] p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+          <div className="flex-1 bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
             {/* <h3 className="font-semibold mb-3">Overview</h3> */}
             <div className="h-40 bg-gray-200 rounded-md flex items-center justify-center">
               <img src="/home/Data.png" alt="Chart" className="w-full h-full object-cover" /> 
@@ -18,7 +18,7 @@ const Home = () => {
           </div>
 
           {/* Active Devices Card */}
-          <div className="w-64 p-6 bg-gradient-to-r from-teal-400 to-blue-500 text-white rounded-xl shadow-md">
+          <div className="w-full md:w-64 p-6 bg-gradient-to-r from-teal-400 to-blue-500 text-white rounded-xl shadow-md">
             {/* Top Section */}
             <div className="flex mb-8">
               {/* Icon in white box */}
@@ -45,7 +45,7 @@ const Home = () => {
           </div>
 
           {/* Subscribed Card */}
-          <div className="w-64 p-6 bg-gradient-to-r from-teal-400 to-blue-500 text-white rounded-xl shadow-md">
+          <div className="w-full md:w-64 p-6 bg-gradient-to-r from-teal-400 to-blue-500 text-white rounded-xl shadow-md">
             {/* Top Section */}
             <div className="flex mb-8">
               {/* Icon in white box */}
@@ -72,9 +72,9 @@ const Home = () => {
         </div>
 
         {/* Main Content Area */}
-        <div className="flex gap-6">
+        <div className="flex flex-col md:flex-row gap-6">
           {/* Left Content (30%) - Events Section */}
-          <div className="w-[35%] space-y-6">
+          <div className="w-full md:w-[35%] space-y-6">
             {/* Events Stats Chart */}
             <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
               {/* <h3 className="font-semibold mb-3">Events Stats</h3> */}
@@ -101,9 +101,9 @@ const Home = () => {
           </div>
 
           {/* Right Content (70%) - Map and App List */}
-          <div className="w-[65%] flex gap-6">
+          <div className="w-full md:w-[65%] flex gap-6">
             {/* Map Section (50% of parent) */}
-            <div className="w-[71.5%]">
+            <div className="w-full md:w-[71.5%]">
               <div className="bg-white p-3 rounded-xl shadow-md h-full hover:shadow-xl transition-shadow duration-300">
                 {/* <h3 className="font-semibold mb-3">Map</h3> */}
                 <div className="h-[360px] bg-gray-200 rounded-md flex items-center justify-center">
@@ -113,7 +113,7 @@ const Home = () => {
             </div>
 
             {/* App List Section (20% of parent) */}
-            <div className="w-[28.5%]">
+            <div className="w-full md:w-[28.5%]">
               <div className="bg-white p-2 px-4 rounded-xl shadow-md h-full hover:shadow-xl transition-shadow duration-300">
                 <h3 className="font-semibold mb-3 flex justify-between">
                   <span>App List</span>

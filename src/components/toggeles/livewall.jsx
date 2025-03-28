@@ -34,6 +34,9 @@ export default function FileExplorer() {
     }))
   );
 
+  const [modalImage, setModalImage] = useState(null);
+  const [isModalOpen, setModalOpen] = useState(false);
+
   const toggleFolder = (id) => {
     setFiles(files.map(file => 
       file.id === id ? { ...file, isExpanded: !file.isExpanded } : file
@@ -49,6 +52,18 @@ export default function FileExplorer() {
 
   const closeImage = (id) => {
     setImages(images.filter(img => img.id !== id));
+  };
+
+  const openModal = (image) => {
+    setModalImage(image);
+    setModalOpen(true);
+    document.body.style.overflow = 'hidden'; // Disable scrolling
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setModalImage(null);
+    document.body.style.overflow = 'unset'; // Enable scrolling
   };
 
   const FileItem = ({ item, depth = 0 }) => {
@@ -84,9 +99,9 @@ export default function FileExplorer() {
       <Navbar />
       <div className="flex flex-1 overflow-hidden">
         
-        <div className="w-64 overflow-y-auto p-2 px-1">
+        <div className="md:w-[20%] overflow-y-auto p-2">
           {/* Search Bar */}
-          <div className="flex items-center bg-gray-100 px-4 py-2 rounded-full shadow-lg border border-gray-200 mb-6    ">
+          <div className="flex items-center bg-gray-100 px-4 py-2 rounded-full shadow-lg border border-gray-200 mb-6">
             <input
               type="text"
               placeholder="Search"  
@@ -101,7 +116,11 @@ export default function FileExplorer() {
         <div className="flex-1 p-4 overflow-y-auto bg-gray-50">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {images.map(image => (
-              <div key={image.id} className="bg-white rounded-lg overflow-hidden shadow-sm border">
+              <div 
+                key={image.id} 
+                className="bg-white rounded-lg overflow-hidden shadow-sm border relative cursor-pointer"
+                onClick={() => openModal(image)} // Open modal on click
+              >
                 <div className="flex justify-between items-center p-2 bg-gray-100">
                   <span className="text-sm font-medium">{image.title}</span>
                   <div className="flex items-center gap-2">
@@ -121,12 +140,28 @@ export default function FileExplorer() {
         </div>
       </div>
       
-      <div className="absolute bottom-4 left-4">
-        <button className="rounded-full bg-primary text-white bg-black flex items-center px-3 py-2">
+      <div className="absolute bottom-4 left-6">
+        <button className="rounded-full bg-primary bg-gray-800 text-white flex items-center px-3 py-2">
           <Plus size={16} className="mr-1" />
           Add Folder
         </button>
       </div>
+
+      {/* Modal for Fullscreen View */} 
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg overflow-hidden" style={{ width: '80%', height: '80%' }}>
+            <button onClick={closeModal} className="absolute top-2 right-5 text-white hover:text-gray-800">
+              <X size={24} />
+            </button>
+            <img
+              src={modalImage.url}
+              alt={modalImage.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
